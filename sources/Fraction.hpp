@@ -57,7 +57,7 @@ namespace ariel{
 
         friend Fraction operator/(float f, const Fraction& other);
 
-
+        
 
         int get_numerator();
 
