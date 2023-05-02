@@ -19,20 +19,19 @@ using namespace ariel;
 int main() {
     Fraction a(5,3), b(14,21);
 
-    Fraction c = a+b;
-    
-    cout <<c.get_numerator() <<" "<<c.get_denominator()<<" "<<endl;
+    Fraction c = a*b;
 
-    cout <<c.convert(1.25).get_numerator()<<endl;
-    cout <<c.convert(1.25).get_denominator()<<endl;
+    cout <<"c.num == "<<c.get_numerator()<<endl;
+    cout <<"c.den == "<<c.get_denominator()<<endl;
 
-    Fraction g = c.convert(1.25);
-    
 
-    Fraction h(13,4);
-    Fraction t = h + 1.75;
-    cout <<t.get_numerator()<<endl;
-    cout <<t.get_denominator()<<endl;
+    cout <<"a.num == "<<a.get_numerator()<<endl;
+    cout <<"a.den == "<<a.get_denominator()<<endl;
+
+    Fraction g = a*b;
+
+    cout <<"g.num == "<<g.get_numerator()<<endl;
+    cout <<"g.den == "<<g.get_denominator()<<endl;
 
     // cout << "a: " << a << "b: " << b << endl;
     // cout << "a+b" << a+b << endl; 
