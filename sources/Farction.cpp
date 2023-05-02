@@ -7,9 +7,11 @@ using namespace ariel;
 
 namespace ariel{
 
-    Fraction::Fraction(int num, int denom):
-    numerator(num), denominator(denom)
+    Fraction::Fraction(int num, int denom)
+    // numerator(num), denominator(denom)
     {
+        numerator = num;
+        denominator = denom;
         int gc = gcd(numerator, denominator);
         numerator /= gc;
         denominator /= gc;
@@ -39,7 +41,7 @@ namespace ariel{
     }
 
     return dig_num;
-    
+
     }
 
 
