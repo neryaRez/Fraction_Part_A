@@ -223,10 +223,34 @@ TEST_SUITE("Comparison Operators"){
             CHECK(f1 == m1);
             CHECK(f2 == m2);
             CHECK(m3 == f3);
-            
-
 
         }
+
+}
+
+TEST_SUITE(" ++ and -- Operators "){
+
+    TEST_CASE("Post-Fix"){
+
+    }
+
+    TEST_CASE("pre fix"){
+
+    }
+
+
+}
+
+TEST_SUITE("IO Operators"){
+
+    TEST_CASE("Fraction << Operator"){
+
+        
+    }
+
+    TEST_CASE("Fraction >> Operator"){
+
+    }
 
 }
 
