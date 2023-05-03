@@ -13,9 +13,7 @@ namespace ariel{
 
         else if(denom < 0){
             numerator = num * -1;
-            // cout << "numerator =="<<numerator<<endl;
             denominator = denom * -1;
-            // cout <<"denominator=="<<denominator<<endl;
         }
         else
         {
@@ -25,8 +23,6 @@ namespace ariel{
         int gc = gcd(numerator, denominator);
         numerator /= gc;
         denominator /= gc;
-        // cout <<"denominator=="<<denominator<<endl;
-        // cout << "numerator =="<<numerator<<endl;
     }
 
     //private - support functions:
