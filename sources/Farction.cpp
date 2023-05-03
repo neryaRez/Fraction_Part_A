@@ -11,11 +11,6 @@ namespace ariel{
     {
         if(denom == 0) throw runtime_error("divide by zero is illegal\n");
 
-        else if(denom < 0)
-        {
-            num = -num;
-            denom = -denom;
-        }
         else
         {
            numerator = num;

@@ -19,6 +19,10 @@ using namespace ariel;
 int main() {
     Fraction a(5,3), b(14,21);
 
+    Fraction v(-1,-2);
+
+    cout<<v<<endl;
+
     cout << "a: " << a << "b: " << b << endl;
     cout << "a+b" << a+b << endl; 
     cout << "a-b" << a-b << endl; 
