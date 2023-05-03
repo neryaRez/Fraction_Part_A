@@ -11,6 +11,12 @@ namespace ariel{
     {
         if(denom == 0) throw runtime_error("divide by zero is illegal\n");
 
+        else if(denom < 0){
+            numerator = num * -1;
+            // cout << "numerator =="<<numerator<<endl;
+            denominator = denom * -1;
+            // cout <<"denominator=="<<denominator<<endl;
+        }
         else
         {
            numerator = num;
@@ -19,6 +25,8 @@ namespace ariel{
         int gc = gcd(numerator, denominator);
         numerator /= gc;
         denominator /= gc;
+        // cout <<"denominator=="<<denominator<<endl;
+        // cout << "numerator =="<<numerator<<endl;
     }
 
     //private - support functions:

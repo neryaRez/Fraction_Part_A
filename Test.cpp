@@ -17,11 +17,13 @@ TEST_CASE("Fraction Constructors & Getters"){
     CHECK_NOTHROW(Fraction(2,-1));
     CHECK_NOTHROW(Fraction(-1,-2));
 
-    Fraction a(4,5);
+    Fraction a(-4,-10);
     Fraction b(5,10);
+    Fraction c(1,-1);
 
-    CHECK((a.get_numerator() == 4 && a.get_denominator() == 5));
-    CHECK((b.get_numerator() == 1 && b.get_denominator() == 2));
+    CHECK((a.get_numerator() == 2  && a.get_denominator() == 5));
+    CHECK((b.get_numerator() == 1  && b.get_denominator() == 2));
+    CHECK((c.get_numerator() == -1  && c.get_denominator() ==1));
 
 }
 
@@ -31,15 +33,17 @@ TEST_CASE("Fraction + Operator"){
     Fraction b(9,36);
 
     Fraction c = a + b;
+    Fraction d = c + 0.25;
+    Fraction e = -0.25 + d;
+    Fraction g = -0.5 + c ;
+    Fraction k(-16,64), k2(49,7), k3(7,-49);
+    Fraction h = -3.25 + e + k + k2 + k3;  
 
     CHECK_EQ(c, Fraction(1,2));
-
-    Fraction d = c + 0.25;
-
     CHECK_EQ(d, Fraction(3,4));
-
-    Fraction e = -0.25 + d;
-
     CHECK_EQ(e, Fraction(1,2));
+    CHECK_EQ(g, Fraction(0,8));
+    CHECK_EQ(h, Fraction(27,7));
+
 
 }
