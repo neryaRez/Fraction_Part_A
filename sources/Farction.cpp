@@ -1,5 +1,3 @@
-// #pragma once
-
 #include "Fraction.hpp"
 
 using namespace std;
