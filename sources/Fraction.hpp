@@ -115,21 +115,9 @@ namespace ariel{
 
         friend bool operator <= (float f, const Fraction& other); 
 
-        ///// Operator != ////////////
-
-        bool operator != (const Fraction& other) const;
-    
-        bool operator != (float f) const;
-
-        friend bool operator != (float f, const Fraction& other);                             
-
-
-
         int get_numerator();
 
         int get_denominator();
-
-
 
         
     };

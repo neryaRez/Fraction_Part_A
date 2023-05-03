@@ -305,25 +305,7 @@ namespace ariel{
         return other.convert(f) <= other ;
 
     }
-
-     ///// Operator != ////
-
-    bool Fraction::operator != (const Fraction& other) const{
-
-        return !(*this == other);
-    }
-    
-    bool Fraction::operator != (float f) const{
-
-        return *this != this->convert(f);
-
-    }
-
-    bool operator != (float f, const Fraction& other){
-
-        return other.convert(f) != other ;
-
-    }    
+   
 
     int Fraction::get_numerator(){
         return this->numerator;
