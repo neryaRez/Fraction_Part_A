@@ -154,16 +154,183 @@ namespace ariel{
         return other.convert(f) / other;
     }
 
+    // Operators ++ && -- //////
 
+    Fraction Fraction::operator++(int){
 
+        Fraction temp = *this;
+        ++(*this);
+        return temp;
+    }
 
+    Fraction& Fraction::operator++(){
 
+        numerator += denominator;
+        return *this;
+    }
 
+     Fraction Fraction::operator--(int){
+        Fraction temp = *this;
+        --(*this);
+        return temp;
+    }
 
+     Fraction& Fraction::operator--(){
 
+        numerator -= denominator;
+        return *this;
+    }
 
+    ///IO Operators ////
 
+    ostream& operator<<(ostream& os, const Fraction& frac) {
+
+    os << frac.numerator << "/" << frac.denominator;
+    return os;
+
+    }
+
+    istream& operator>>(istream& is, Fraction& frac) {
     
+    is >> frac.numerator >> frac.denominator;
+    if (frac.denominator == 0) {
+        throw runtime_error("divide by zero is illegal\n");
+    }
+    int gc = frac.gcd(frac.numerator, frac.denominator);
+    frac.numerator /= gc;
+    frac.denominator /= gc;
+    return is;
+
+    }
+
+    //// Comparison Operators ////////
+
+      /////Operator == /////
+
+    bool Fraction::operator == (const Fraction& other) const{
+
+        int gc = gcd(other.numerator, other.denominator);
+
+        return this->numerator == (other.numerator/gc) && this->denominator ==(other.denominator/gc);
+    }
+    
+    bool Fraction::operator == (float f) const{
+
+        return *this == this->convert(f);
+
+    }
+
+    bool operator == (float f, const Fraction& other){
+
+        return other.convert(f) == other ;
+
+    } 
+
+    //// Operator > //////
+
+    bool Fraction::operator > (const Fraction& other) const{
+
+        int lcm = (this->denominator * other.denominator)/gcd(this->denominator, other.denominator);
+
+        int num_this = this->numerator *(lcm/this->denominator);
+
+        int num_other = other.numerator *(lcm/other.denominator);
+
+        return num_this > num_other ; 
+    }
+    
+    bool Fraction::operator > (float f) const{
+
+        return *this > this->convert(f);
+
+    }
+
+    bool operator > (float f, const Fraction& other){
+
+        return other.convert(f) > other;
+
+    }
+
+    ///// Operator < ////////
+
+    bool Fraction::operator < (const Fraction& other) const{
+
+        int lcm = (this->denominator * other.denominator)/gcd(this->denominator, other.denominator);
+
+        int num_this = this->numerator *(lcm/this->denominator);
+
+        int num_other = other.numerator *(lcm/other.denominator);
+
+        return num_this < num_other ; 
+
+    }
+    
+    bool Fraction::operator < (float f) const{
+
+        return *this < this->convert(f);
+    }
+
+    bool operator < (float f, const Fraction& other){
+
+        return other.convert(f) < other;
+    }
+
+    ///// Operator >= ////
+
+    bool Fraction::operator >= (const Fraction& other) const{
+
+        return *this > other || *this == other ;
+    }
+    
+    bool Fraction::operator >= (float f) const{
+
+        return *this >= this->convert(f);
+
+    }
+
+    bool operator >= (float f, const Fraction& other){
+
+        return other.convert(f) >= other ;
+
+    }
+
+     ///// Operator <= ////
+
+    bool Fraction::operator <= (const Fraction& other) const{
+
+        return *this < other || *this == other ;
+    }
+    
+    bool Fraction::operator <= (float f) const{
+
+        return *this <= this->convert(f);
+
+    }
+
+    bool operator <= (float f, const Fraction& other){
+
+        return other.convert(f) <= other ;
+
+    }
+
+     ///// Operator != ////
+
+    bool Fraction::operator != (const Fraction& other) const{
+
+        return !(*this == other);
+    }
+    
+    bool Fraction::operator != (float f) const{
+
+        return *this != this->convert(f);
+
+    }
+
+    bool operator != (float f, const Fraction& other){
+
+        return other.convert(f) != other ;
+
+    }    
 
     int Fraction::get_numerator(){
         return this->numerator;
@@ -172,9 +339,5 @@ namespace ariel{
     int Fraction::get_denominator(){
         return this->denominator;
     }
-
-        // Fraction operator-(const Fraction& other) const;
-
-        // friend Fraction operator+(float f, const Fraction& other);
 
 }

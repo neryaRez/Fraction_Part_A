@@ -57,11 +57,79 @@ namespace ariel{
 
         friend Fraction operator/(float f, const Fraction& other);
 
-        
+        /// Operators ++ && --///
+
+        Fraction operator++ (int);
+
+        Fraction& operator++();
+
+        Fraction operator-- (int);
+
+        Fraction& operator--();   
+
+        /// IO Operators //////
+
+        friend ostream& operator<<(ostream& os, const Fraction& frac); 
+
+        friend istream& operator>>(istream& is, Fraction& frac);
+
+        /// Comparison Operators ////
+
+        /////Operator == /////
+
+        bool operator == (const Fraction& other) const;
+    
+        bool operator == (float f) const;
+
+        friend bool operator == (float f, const Fraction& other);        
+
+        //// Operator > //////
+
+        bool operator > (const Fraction& other) const;
+    
+        bool operator > (float f) const;
+
+        friend bool operator > (float f, const Fraction& other);
+
+        ///// Operator < ////////
+
+        bool operator < (const Fraction& other) const;
+    
+        bool operator < (float f) const;
+
+        friend bool operator < (float f, const Fraction& other); 
+
+        ///// Operator >= ////
+
+        bool operator >= (const Fraction& other) const;
+    
+        bool operator >= (float f) const;
+
+        friend bool operator >= (float f, const Fraction& other); 
+
+        ///// Operator <= ///////////
+
+        bool operator <= (const Fraction& other) const;
+    
+        bool operator <= (float f) const;
+
+        friend bool operator <= (float f, const Fraction& other); 
+
+        ///// Operator != ////////////
+
+        bool operator != (const Fraction& other) const;
+    
+        bool operator != (float f) const;
+
+        friend bool operator != (float f, const Fraction& other);                             
+
+
 
         int get_numerator();
 
         int get_denominator();
+
+
 
         
     };
