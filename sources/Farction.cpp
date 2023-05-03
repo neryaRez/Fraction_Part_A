@@ -50,9 +50,7 @@ namespace ariel{
         else if (s[i] != '0') zeros = false;
         if(!zeros)dig_num++;
     }
-
     return dig_num;
-
     }
 
     Fraction Fraction::convert(float a) const{    
@@ -135,7 +133,6 @@ namespace ariel{
     Fraction Fraction::operator/(const Fraction& other) const{
 
        if(other.numerator == 0) throw runtime_error("divide by zero is illegal\n");
-
        Fraction div(other.denominator, other.numerator);
 
        return *this * div;
@@ -196,6 +193,7 @@ namespace ariel{
     if (frac.denominator == 0) {
         throw runtime_error("divide by zero is illegal\n");
     }
+
     int gc = frac.gcd(frac.numerator, frac.denominator);
     frac.numerator /= gc;
     frac.denominator /= gc;
@@ -231,9 +229,7 @@ namespace ariel{
     bool Fraction::operator > (const Fraction& other) const{
 
         int lcm = (this->denominator * other.denominator)/gcd(this->denominator, other.denominator);
-
         int num_this = this->numerator *(lcm/this->denominator);
-
         int num_other = other.numerator *(lcm/other.denominator);
 
         return num_this > num_other ; 
@@ -256,9 +252,7 @@ namespace ariel{
     bool Fraction::operator < (const Fraction& other) const{
 
         int lcm = (this->denominator * other.denominator)/gcd(this->denominator, other.denominator);
-
         int num_this = this->numerator *(lcm/this->denominator);
-
         int num_other = other.numerator *(lcm/other.denominator);
 
         return num_this < num_other ; 
@@ -339,5 +333,4 @@ namespace ariel{
     int Fraction::get_denominator(){
         return this->denominator;
     }
-
 }
