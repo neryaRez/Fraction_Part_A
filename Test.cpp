@@ -232,12 +232,27 @@ TEST_SUITE(" ++ and -- Operators "){
 
     TEST_CASE("Post-Fix"){
 
+        Fraction c(3,4);
+
+        CHECK( c++ == 0.75);
+
+        CHECK( c == 1.75);
+
+        CHECK( c-- == 1.75);
+
+        CHECK( c == 0.75);
+
     }
 
     TEST_CASE("pre fix"){
 
-    }
+        Fraction c(5,4);
 
+        CHECK ( --c == 0.25);
+
+        CHECK ( ++c == 1.25);
+        
+    }
 
 }
 
@@ -245,10 +260,19 @@ TEST_SUITE("IO Operators"){
 
     TEST_CASE("Fraction << Operator"){
 
+        Fraction a(16,64);
+        ostringstream os;
+        CHECK_NOTHROW(os << a);
+        CHECK_EQ(os.str(), "1/4");
         
     }
 
     TEST_CASE("Fraction >> Operator"){
+
+        istringstream in("4 8");
+        Fraction a2(4,8);
+        CHECK_NOTHROW(in >> a2);
+        CHECK( a2 == 0.5);
 
     }
 
