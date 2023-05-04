@@ -270,17 +270,38 @@ TEST_SUITE("IO Operators"){
     TEST_CASE("Fraction >> Operator"){
 
         istringstream in("4 8");
-        Fraction a2(4,8);
+        Fraction a2;
         CHECK_NOTHROW(in >> a2);
         CHECK( a2 == 0.5);
+
+        istringstream in2("4 0");
+        Fraction a1;
+        CHECK_THROWS(in2 >> a1);
+
+        istringstream in3("4");
+        Fraction b;
+        CHECK_THROWS(in3 >> b);
 
     }
 
 }
 
+TEST_CASE("Over flow errors"){
 
+    Fraction a1(int_max, 1), a2(5, 1), a3(int_min, 1);
 
+    CHECK_THROWS(a1 + a2);
+    CHECK_THROWS( a1 ++ );
+    CHECK_THROWS(1-a3);
+    CHECK_THROWS( a3 --);
+    CHECK_THROWS( -- a3);
 
+    Fraction b1(4, int_max), b2(int_max - 10, int_max);
 
+    CHECK_THROWS( a1 * b2 );
+    CHECK_THROWS( b1 * b2 );
+    CHECK_NOTHROW( a1 / 1  );
+    CHECK_THROWS( b1 / b2 );
+    CHECK_THROWS( a1 / b1 );
 
-
+}
