@@ -5,6 +5,7 @@
 #include <cmath>
 #include <string>
 #include <stdexcept>
+#include <limits>
 
 using namespace std;
 // using namespace ariel;
@@ -17,45 +18,46 @@ namespace ariel{
         int numerator;
         int denominator;
 
-        int gcd(int a, int b) const;
-        int digits_after_point(float a) const;
-        Fraction convert(float a) const;
-    
+        int gcd(int num, int denom) const;
+        int digits_after_point(float fl1) const;
+        void init_and_reduce(int num, int denom);
+
     public:
 
         Fraction(int num, int denom);
-
+        Fraction (float fl1);
+        Fraction();
         // Operator +///
 
         Fraction operator+(const Fraction& other) const;
 
-        Fraction operator+(float f) const;
+        Fraction operator+(float fl1) const;
        
-        friend Fraction operator+(float f, const Fraction& other);
+        friend Fraction operator+(float fl1, const Fraction& other);
 
-        ///Operator -///
+        ///Operator - ///
         
         Fraction operator-(const Fraction& other) const;
 
-        Fraction operator-(float f) const;
+        Fraction operator-(float fl1) const;
 
-        friend Fraction operator-(float f, const Fraction& other);
+        friend Fraction operator-(float fl1, const Fraction& other);
 
         ///Operator *    ///
 
         Fraction operator*(const Fraction& other) const;
 
-        Fraction operator*(float f) const;
+        Fraction operator*(float fl1) const;
 
-        friend Fraction operator*(float f, const Fraction& other);
+        friend Fraction operator*(float fl1, const Fraction& other);
 
         ///Operator /    ///
 
         Fraction operator/(const Fraction& other) const;
 
-        Fraction operator/(float f) const;
+        Fraction operator/(float fl1) const;
 
-        friend Fraction operator/(float f, const Fraction& other);
+        friend Fraction operator/(float fl1, const Fraction& other);
 
         /// Operators ++ && --///
 
@@ -69,9 +71,9 @@ namespace ariel{
 
         /// IO Operators //////
 
-        friend ostream& operator<<(ostream& os, const Fraction& frac); 
+        friend ostream& operator<<(ostream& out_s, const Fraction& frac); 
 
-        friend istream& operator>>(istream& is, Fraction& frac);
+        friend istream& operator>>(istream& input_s, Fraction& frac);
 
         /// Comparison Operators ////
 
@@ -79,41 +81,41 @@ namespace ariel{
 
         bool operator == (const Fraction& other) const;
     
-        bool operator == (float f) const;
+        bool operator == (float fl1) const;
 
-        friend bool operator == (float f, const Fraction& other);        
+        friend bool operator == (float fl1, const Fraction& other);        
 
         //// Operator > //////
 
         bool operator > (const Fraction& other) const;
     
-        bool operator > (float f) const;
+        bool operator > (float fl1) const;
 
-        friend bool operator > (float f, const Fraction& other);
+        friend bool operator > (float fl1, const Fraction& other);
 
         ///// Operator < ////////
 
         bool operator < (const Fraction& other) const;
     
-        bool operator < (float f) const;
+        bool operator < (float fl1) const;
 
-        friend bool operator < (float f, const Fraction& other); 
+        friend bool operator < (float fl1, const Fraction& other); 
 
         ///// Operator >= ////
 
         bool operator >= (const Fraction& other) const;
     
-        bool operator >= (float f) const;
+        bool operator >= (float fl1) const;
 
-        friend bool operator >= (float f, const Fraction& other); 
+        friend bool operator >= (float fl1, const Fraction& other); 
 
         ///// Operator <= ///////////
 
         bool operator <= (const Fraction& other) const;
     
-        bool operator <= (float f) const;
+        bool operator <= (float fl1) const;
 
-        friend bool operator <= (float f, const Fraction& other); 
+        friend bool operator <= (float fl1, const Fraction& other); 
 
         int get_numerator();
 
@@ -121,6 +123,7 @@ namespace ariel{
 
         
     };
-    
+    #define int_max  numeric_limits<int>::max()
+    #define int_min  numeric_limits<int>::min()    
 
 }
